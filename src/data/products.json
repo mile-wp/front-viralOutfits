@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "nombre": "Camiseta Dry-Fit Pulse",
+    "descripcion": "Camiseta ligera y transpirable para entrenamientos de alta intensidad.",
+    "precio": 24990,
+    "categoria": "Camisetas",
+    "imagen": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80",
+    "stock": 24,
+    "rating": 4.8
+  },
+  {
+    "id": 2,
+    "nombre": "Calza Flex Training",
+    "descripcion": "Calza de cintura alta con tejido elástico y soporte para moverte con libertad.",
+    "precio": 38990,
+    "categoria": "Calzas",
+    "imagen": "https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=700&q=80",
+    "stock": 18,
+    "rating": 4.7
+  },
+  {
+    "id": 3,
+    "nombre": "Short Run Breeze",
+    "descripcion": "Short de running de secado rápido con calza interior y bolsillo seguro.",
+    "precio": 27990,
+    "categoria": "Shorts",
+    "imagen": "https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=700&q=80",
+    "stock": 31,
+    "rating": 4.6
+  },
+  {
+    "id": 4,
+    "nombre": "Top Deportivo Impact",
+    "descripcion": "Top de sujeción media con espalda deportiva y tela respirable.",
+    "precio": 31990,
+    "categoria": "Tops",
+    "imagen": "https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=700&q=80",
+    "stock": 16,
+    "rating": 4.9
+  },
+  {
+    "id": 5,
+    "nombre": "Buzo Urban Warm-Up",
+    "descripcion": "Buzo liviano con cierre frontal, ideal para entrar en calor y salir a la calle.",
+    "precio": 54990,
+    "categoria": "Buzos",
+    "imagen": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=700&q=80",
+    "stock": 12,
+    "rating": 4.5
+  },
+  {
+    "id": 6,
+    "nombre": "Jogger Move",
+    "descripcion": "Pantalón jogger de tejido flexible con puños ajustados y bolsillos laterales.",
+    "precio": 46990,
+    "categoria": "Pantalones",
+    "imagen": "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?auto=format&fit=crop&w=700&q=80",
+    "stock": 20,
+    "rating": 4.6
+  },
+  {
+    "id": 7,
+    "nombre": "Zapatillas Sprint Court",
+    "descripcion": "Zapatillas deportivas con amortiguación cómoda para correr o entrenar en el gimnasio.",
+    "precio": 89990,
+    "categoria": "Calzado",
+    "imagen": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80",
+    "stock": 9,
+    "rating": 4.8
+  },
+  {
+    "id": 8,
+    "nombre": "Rompevientos Trail",
+    "descripcion": "Chaqueta ligera resistente al viento, con capucha y detalles reflectantes.",
+    "precio": 64990,
+    "categoria": "Chaquetas",
+    "imagen": "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?auto=format&fit=crop&w=700&q=80",
+    "stock": 7,
+    "rating": 4.7
+  }
+]
