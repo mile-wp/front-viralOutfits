@@ -7,13 +7,13 @@ const formatoPrecio = new Intl.NumberFormat('es-AR', {
   maximumFractionDigits: 0,
 });
 
-const CardProductos = ({ product }) => {
+const CardProductos = ({ product, onEliminar }) => {
   const variantes = product.variantes ?? [];
 
   const stockTotal = variantes.reduce(
-  (total, variante) => total + (Number(variante.stock) || 0),
-  0
-);
+    (total, variante) => total + (Number(variante.stock) || 0),
+    0
+  );
 
   return (
     <div className="card-producto">
@@ -45,7 +45,8 @@ const CardProductos = ({ product }) => {
         )}
 
         <div className="producto-rating">
-          <span className="stars">⭐ {product.rating ?? 'Sin valoración'}
+          <span className="stars">
+            ⭐ {product.rating ?? 'Sin valoración'}
           </span>
         </div>
 
@@ -56,8 +57,7 @@ const CardProductos = ({ product }) => {
             <ul>
               {variantes.map((variante) => (
                 <li key={variante.id}>
-                  Talle: {variante.talle} ·
-                  Color: {variante.color} ·
+                  Talle: {variante.talle} · Color: {variante.color} ·
                   Stock: {variante.stock}
                 </li>
               ))}
@@ -69,7 +69,9 @@ const CardProductos = ({ product }) => {
 
         <div className="producto-stock">
           <span
-            className={stockTotal > 0 ? 'en-stock' : 'sin-stock'}
+            className={
+              stockTotal > 0 ? 'en-stock' : 'sin-stock'
+            }
           >
             {stockTotal > 0
               ? `Stock total: ${stockTotal}`
@@ -89,6 +91,14 @@ const CardProductos = ({ product }) => {
           >
             Agregar
           </button>
+
+          <button
+            className="btn-eliminar"
+            type="button"
+            onClick={() => onEliminar(product.id)}
+          >
+            Eliminar
+          </button>
         </div>
       </div>
     </div>
@@ -96,4 +106,3 @@ const CardProductos = ({ product }) => {
 };
 
 export default CardProductos;
-

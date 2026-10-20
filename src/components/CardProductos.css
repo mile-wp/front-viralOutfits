@@ -145,6 +145,8 @@
 /* Precio y botón */
 .producto-footer {
   display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   justify-content: space-between;
   align-items: center;
   margin-top: auto;
@@ -156,6 +158,21 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: #ff9800;
+  width: 100%;
+}
+
+.btn-eliminar {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-eliminar:hover {
+  background-color: #b02a37;
 }
 
 /* Botón agregar */
