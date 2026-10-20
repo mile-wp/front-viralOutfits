@@ -27,12 +27,20 @@ const ProductList = () => {
       });
   }, []);
 
-  if (loading) {
-    return <p>Cargando productos...</p>;
+ if (loading) {
+  return (
+    <p className="product-list-status">
+      Cargando productos...
+    </p>
+  );
   }
 
-  if (error) {
-    return <p>{error}</p>;
+if (error) {
+  return (
+    <p className="product-list-error">
+      {error}
+    </p>
+  );
   }
 
   return (
@@ -41,7 +49,8 @@ const ProductList = () => {
         Nuestros productos
       </h2>
 
-      <p>{products.length} productos encontrados</p>
+      <p className="product-list-count">{products.length} productos encontrados
+      </p>
 
       <div className="products-grid">
         {products.map((product) => (
