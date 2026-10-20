@@ -10,7 +10,8 @@ const Card = ({ children, userName, onFollow='false', formatUserName }) => {
     // function handleFollow() {
     //     setIsFollowing(!isFollowing);
     // }
-    //funcion igual que la anterior pero con arrow function
+    
+    //Acá se utiliza la función flecha, para poder compactar las expresiones
     const handleFollow = () => {
         setIsFollowing(!isFollowing);
     }
