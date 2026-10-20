@@ -3,7 +3,15 @@ import ProductList from './components/ProductList';
 import ProductDetail from './components/ProductDetail';
 import './App.css';
 
+
+//Gestiona el estado de la vista principal (Catálogo vs. Detalle de Producto)
+// y la navegación global de la interfaz.
+
 function App() {
+
+// Estado para controlar qué producto se está visualizando.
+// Si es null, se muestra el catálogo general. Si tiene un ID, se muestra el detalle.
+
   const [productoSeleccionadoId, setProductoSeleccionadoId] = useState(null);
 
   // Ir al detalle

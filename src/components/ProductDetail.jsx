@@ -69,6 +69,7 @@ const ProductDetail = ({ productId, onBack, onAddToCart }) => {
   }
 
   // Filtrado de variantes únicas según el contrato ProductoResponseDTO
+  // Filtra los talles disponibles según el color seleccionado actualmente
   const variantes = producto.variantes || [];
   const coloresDisponibles = [...new Set(variantes.map((v) => v.color))];
   const tallesDisponibles = [...new Set(
@@ -78,12 +79,18 @@ const ProductDetail = ({ productId, onBack, onAddToCart }) => {
   )];
 
   // Variante concreta actual para stock
+  // Identifica el objeto exacto de variante combinación (Color + Talle) para verificar su stock
   const varianteActual = variantes.find(
     (v) => v.color === colorSeleccionado && v.talle === talleSeleccionado
   );
 
+  // Determina el stock disponible (si no hay variante asignada, utiliza el stock general del producto)
   const stockDisponible = varianteActual ? varianteActual.stock : (producto.stock ?? 0);
   const sinStock = stockDisponible <= 0;
+
+    //Ejecuta el callback onAddToCart o muestra una alerta de respaldo
+    //construyendo el objeto formateado del ítem a comprar.
+
 
   const handleAgregar = () => {
     if (onAddToCart) {

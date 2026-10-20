@@ -7,14 +7,19 @@ const Card = ({ children, userName, onFollow='false', formatUserName }) => {
     const [isFollowing, setIsFollowing] = useState(onFollow === 'true');
     const [count, setCount] = useState(0);
 
+
+    //Alterna el estado de seguimiento del usuario entre seguido y no seguido.
+
     // function handleFollow() {
     //     setIsFollowing(!isFollowing);
     // }
-    
+
     //Acá se utiliza la función flecha, para poder compactar las expresiones
     const handleFollow = () => {
         setIsFollowing(!isFollowing);
     }
+
+    // Textos y clases CSS dinámicas según el estado de seguimiento (isFollowing)
 
     const text = isFollowing ? 'Dejar de Seguir' : 'Seguir';
     const buttonStyle= isFollowing ? 'card__button--following' : 'card__button-not-following';
