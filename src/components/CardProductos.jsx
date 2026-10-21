@@ -1,7 +1,7 @@
 import React from 'react';
 import './CardProductos.css';
 
-const CardProductos = ({ product }) => {
+const CardProductos = ({ product, onAddToCart }) => {
   return (
     <div className="card-producto">
       <div className="producto-imagen-container">
@@ -29,7 +29,9 @@ const CardProductos = ({ product }) => {
         
         <div className="producto-footer">
           <span className="producto-precio">${product.precio}</span>
-          <button className="btn-agregar">Agregar</button>
+          <button className="btn-agregar" type="button" onClick={() => onAddToCart(product)}>
+            Agregar
+          </button>
         </div>
       </div>
     </div>
