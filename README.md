@@ -1,1 +1,3 @@
 GRUPO 6 - JUEVES NOCHE Titulo del proyecto: Viral Outfits Se desarrollará una aplicación web enfocada en el comercio electrónico. Como caso de negocio, el grupo construirá un e-commerce de indumentaria destinado a la compra de remeras, pantalones, calzado, abrigos y accesorios, ofreciendo todas las variantes, tallas y estilos para adaptarse a las preferencias del usuario. Ofreciendo a los usuarios los "Outfits" mas "Virales" del momento.
+
+**ANTES DE CORRER EL PROYECTO EJECUTAR NPM INSTALL**
