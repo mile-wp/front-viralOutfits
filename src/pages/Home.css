@@ -1,0 +1,23 @@
+.home-section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+.home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+}
+
+.home-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr));
+  gap: 20px;
+  padding-bottom: 72px;
+}

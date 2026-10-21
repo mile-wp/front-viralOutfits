@@ -1,0 +1,137 @@
+.detail__status {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  color: var(--gray-500);
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+}
+
+.detail__info {
+  position: sticky;
+  top: calc(var(--header-h) + 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.detail__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail__title {
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+}
+
+.detail__stock {
+  margin-top: -8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.detail__stock--low,
+.detail__stock--out {
+  color: var(--red);
+}
+
+.detail__buy {
+  display: flex;
+  gap: 12px;
+}
+
+.detail__buy .qty button {
+  height: 54px;
+}
+
+.detail__added {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: -8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.detail__added .link {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: auto;
+}
+
+.detail__features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 20px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.detail__features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  color: var(--gray-700);
+}
+
+.detail__tabs {
+  max-width: 760px;
+  padding: 64px 0 24px;
+}
+
+.detail__specs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 14px;
+}
+
+.detail__related {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 48px 0 72px;
+}
+
+.detail__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+}
+
+@media (max-width: 900px) {
+  .detail {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .detail__info {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  .detail__buy .btn {
+    min-width: 0;
+    padding-inline: 16px;
+    gap: 8px;
+  }
+
+  .detail__buy .btn span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

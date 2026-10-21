@@ -1,0 +1,48 @@
+.shipping-estimator {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  background: var(--gray-100);
+}
+
+.shipping-estimator__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.shipping-estimator__form {
+  display: flex;
+  border-bottom: 1px solid var(--gray-400);
+}
+
+.shipping-estimator__form input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 0;
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 0.82rem;
+}
+
+.shipping-estimator__form button {
+  border: none;
+  background: none;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.shipping-estimator__result {
+  font-size: 0.78rem;
+}
+
+.shipping-estimator__error {
+  font-size: 0.75rem;
+  color: var(--red);
+}

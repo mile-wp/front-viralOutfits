@@ -1,0 +1,35 @@
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 72px 16px;
+  text-align: center;
+}
+
+.empty-state__icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--gray-100);
+}
+
+.empty-state__title {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+}
+
+.empty-state__text {
+  max-width: 420px;
+  font-size: 0.9rem;
+  color: var(--gray-500);
+}
+
+.empty-state__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 8px;
+}

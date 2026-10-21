@@ -1,0 +1,10 @@
+{
+  "id": 7,
+  "nombre": "Lucía",
+  "apellido": "Martín",
+  "email": "lucia.martin@mail.com",
+  "telefono": "11 5555-0123",
+  "fechaNacimiento": "1999-04-12",
+  "genero": "FEMENINO",
+  "rol": "CLIENTE"
+}

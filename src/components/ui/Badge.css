@@ -1,0 +1,59 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: var(--radius);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.badge--dark {
+  background: var(--black);
+  color: var(--white);
+}
+
+.badge--light {
+  background: var(--white);
+  color: var(--black);
+  border: 1px solid var(--black);
+}
+
+.badge--red {
+  background: var(--red);
+  color: var(--white);
+}
+
+.badge--muted {
+  background: var(--gray-200);
+  color: var(--gray-700);
+}
+
+.badge--neutral {
+  background: var(--white);
+  color: var(--gray-700);
+  border: 1px solid var(--gray-300);
+}
+
+/* Estados de pedido: fondo suave con punto */
+.badge--alert {
+  background: #fdecea;
+  color: var(--red);
+}
+
+.badge--success {
+  background: var(--green-bg);
+  color: var(--green);
+}
+
+.badge--alert::before,
+.badge--success::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}

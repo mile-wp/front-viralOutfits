@@ -1,0 +1,86 @@
+.variant {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.variant__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.variant__label {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+}
+
+.variant__label strong {
+  color: var(--black);
+}
+
+.variant__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Colores */
+.swatch {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  padding: 3px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background: none;
+}
+
+.swatch span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--gray-300);
+}
+
+.swatch--active {
+  border-color: var(--black);
+}
+
+.swatch:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* Talles */
+.size-btn {
+  min-width: 56px;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius);
+  background: var(--white);
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: border-color 0.15s ease;
+}
+
+.size-btn:hover:not(:disabled) {
+  border-color: var(--black);
+}
+
+.size-btn--active {
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--white);
+}
+
+.size-btn:disabled {
+  color: var(--gray-400);
+  background: linear-gradient(to top right, transparent calc(50% - 0.5px), var(--gray-300), transparent calc(50% + 0.5px));
+  cursor: not-allowed;
+}

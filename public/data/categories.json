@@ -1,0 +1,5 @@
+[
+  { "id": 1, "nombre": "Calzado", "descripcion": "Zapatillas, botas y sandalias" },
+  { "id": 2, "nombre": "Ropa", "descripcion": "Remeras, buzos, pantalones y camperas" },
+  { "id": 3, "nombre": "Accesorios", "descripcion": "Gorras, mochilas, cinturones y medias" }
+]
