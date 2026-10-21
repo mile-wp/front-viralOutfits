@@ -1,0 +1,35 @@
+.size-guide__intro {
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+  color: var(--gray-500);
+}
+
+.size-guide__scroll {
+  overflow-x: auto;
+}
+
+.size-guide__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.size-guide__table th,
+.size-guide__table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--gray-200);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.size-guide__table thead th {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+}
+
+.size-guide__table tbody th {
+  font-weight: 800;
+}

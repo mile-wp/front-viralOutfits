@@ -1,0 +1,40 @@
+[
+  {
+    "id": 2684,
+    "usuarioId": 7,
+    "fecha": "2026-10-18T15:42:00",
+    "metodoPago": "Transferencia bancaria",
+    "direccionEnvio": "Av. Corrientes 1234, Piso 3 B, CABA (1043)",
+    "total": 131000,
+    "estadoPedido": "ENVIADO",
+    "items": [
+      { "id": 1, "varianteProductoId": 63, "nombreProducto": "Buzo Boxy Archivo", "talla": "L", "color": "Gris", "precioUnitario": 89000, "cantidad": 1, "subtotal": 89000 },
+      { "id": 2, "varianteProductoId": 58, "nombreProducto": "Remera Heavy Logo", "talla": "M", "color": "Negro", "precioUnitario": 42000, "cantidad": 1, "subtotal": 42000 }
+    ]
+  },
+  {
+    "id": 2421,
+    "usuarioId": 7,
+    "fecha": "2026-09-02T11:10:00",
+    "metodoPago": "Tarjeta de crédito",
+    "direccionEnvio": "Av. Corrientes 1234, Piso 3 B, CABA (1043)",
+    "total": 138000,
+    "estadoPedido": "ENTREGADO",
+    "items": [
+      { "id": 3, "varianteProductoId": 21, "nombreProducto": "Jean Recto Raw", "talla": "40", "color": "Azul", "precioUnitario": 105000, "cantidad": 1, "subtotal": 105000 },
+      { "id": 4, "varianteProductoId": 51, "nombreProducto": "Gorra Dad Lavada", "talla": "Único", "color": "Gris", "precioUnitario": 33000, "cantidad": 1, "subtotal": 33000 }
+    ]
+  },
+  {
+    "id": 2105,
+    "usuarioId": 7,
+    "fecha": "2026-07-15T19:25:00",
+    "metodoPago": "Mercado Pago",
+    "direccionEnvio": "Retiro en showroom - Gorriti 4865, Palermo, CABA",
+    "total": 129000,
+    "estadoPedido": "ENTREGADO",
+    "items": [
+      { "id": 5, "varianteProductoId": 37, "nombreProducto": "Zapatillas Court Blancas", "talla": "41", "color": "Blanco", "precioUnitario": 129000, "cantidad": 1, "subtotal": 129000 }
+    ]
+  }
+]

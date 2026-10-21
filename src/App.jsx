@@ -1,65 +1,29 @@
-import React, { useState } from 'react';
-import ProductList from './components/ProductList';
-import ProductDetail from './components/ProductDetail';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Layout from './components/layout/Layout';
+import Home from './pages/Home';
+import ProductList from './pages/ProductList';
+import ProductDetail from './pages/ProductDetail';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Cart from './pages/Cart';
+import Account from './pages/Account';
+import NotFound from './pages/NotFound';
 
-
-//Gestiona el estado de la vista principal (Catálogo vs. Detalle de Producto)
-// y la navegación global de la interfaz.
-
+// Mapa de pantallas de la app (todas comparten Navbar + Footer a través de Layout)
 function App() {
-
-// Estado para controlar qué producto se está visualizando.
-// Si es null, se muestra el catálogo general. Si tiene un ID, se muestra el detalle.
-
-  const [productoSeleccionadoId, setProductoSeleccionadoId] = useState(null);
-
-  // Ir al detalle
-  const handleVerDetalle = (id) => {
-    setProductoSeleccionadoId(id);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  // Volver al catálogo
-  const handleVolver = () => {
-    setProductoSeleccionadoId(null);
-  };
-
   return (
-    <div className="app-main-layout">
-      {/* Header / Navbar público */}
-      <header className="site-header">
-        <div className="header-brand" onClick={handleVolver} style={{ cursor: 'pointer' }}>
-          ViralOutfits®
-        </div>
-        <nav className="header-nav">
-          <button className="nav-item-btn" onClick={handleVolver}>CATÁLOGO</button>
-          <span className="nav-item">NUEVO</span>
-          <span className="nav-item">INDUMENTARIA</span>
-          <span className="nav-item">ACCESORIOS</span>
-        </nav>
-      </header>
-
-      {/* Vista condicional */}
-      <main className="site-content">
-        {productoSeleccionadoId ? (
-          <ProductDetail
-            productId={productoSeleccionadoId}
-            onBack={handleVolver}
-            onAddToCart={(item) => {
-              alert(`Agregado al carrito: ${item.nombre} (Talle: ${item.talle}, Color: ${item.color}) x${item.cantidad}`);
-            }}
-          />
-        ) : (
-          <ProductList onSelectProduct={handleVerDetalle} />
-        )}
-      </main>
-
-      {/* Footer básico */}
-      <footer className="site-footer">
-        <p>© 2026 Viral Outfits - Todos los derechos reservados.</p>
-      </footer>
-    </div>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/productos" element={<ProductList />} />
+        <Route path="/productos/:id" element={<ProductDetail />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/registro" element={<Register />} />
+        <Route path="/carrito" element={<Cart />} />
+        <Route path="/mi-cuenta" element={<Account />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
 
