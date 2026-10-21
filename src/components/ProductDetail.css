@@ -82,6 +82,7 @@
 .detail-info {
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
 .detail-brand {
@@ -94,24 +95,32 @@
 }
 
 .detail-title {
-  font-size: 2.2rem;
-  font-weight: 900;
-  line-height: 1.15;
-  letter-spacing: -0.03em;
-  margin: 0 0 16px 0;
+  width: 100%;
+  min-height: 98px;
+  margin: 0 0 0.5rem;
+
+  font-family: 'Inter', sans-serif;
+  font-size: 49px;
+  font-weight: 800;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #000;
 }
 
 .detail-price-box {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  margin-top: 24px;
   margin-bottom: 16px;
 }
 
 .detail-price {
-  font-size: 1.8rem;
-  font-weight: 900;
+  font-size: 2.5rem;
+  font-weight: 700;
   color: #111;
+  text-align: left;
 }
 
 .detail-installments {
@@ -195,7 +204,7 @@
 }
 
 .size-btn {
-  min-width: 48px;
+  min-width: 72px;
   text-align: center;
 }
 
@@ -219,6 +228,7 @@
   border: none;
   padding: 10px 16px;
   font-size: 1.1rem;
+  color: #111;
   cursor: pointer;
 }
 
