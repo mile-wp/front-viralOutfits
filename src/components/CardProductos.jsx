@@ -1,4 +1,3 @@
-import React from 'react';
 import './CardProductos.css';
 
 const formatoPrecio = new Intl.NumberFormat('es-AR', {
@@ -7,12 +6,12 @@ const formatoPrecio = new Intl.NumberFormat('es-AR', {
   maximumFractionDigits: 0,
 });
 
-const CardProductos = ({ product, onEliminar }) => {
+const CardProductos = ({ product, onEliminar, onAddToCart }) => {
   const variantes = product.variantes ?? [];
 
   const stockTotal = variantes.reduce(
     (total, variante) => total + (Number(variante.stock) || 0),
-    0
+    0,
   );
 
   return (
@@ -88,17 +87,20 @@ const CardProductos = ({ product, onEliminar }) => {
             className="btn-agregar"
             type="button"
             disabled={stockTotal === 0}
+            onClick={() => onAddToCart?.(product)}
           >
             Agregar
           </button>
 
-          <button
-            className="btn-eliminar"
-            type="button"
-            onClick={() => onEliminar(product.id)}
-          >
-            Eliminar
-          </button>
+          {onEliminar && (
+            <button
+              className="btn-eliminar"
+              type="button"
+              onClick={() => onEliminar(product.id)}
+            >
+              Eliminar
+            </button>
+          )}
         </div>
       </div>
     </div>

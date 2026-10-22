@@ -1,9 +1,11 @@
-
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import CardProductos from './CardProductos';
+import { useCart } from '../hooks/useCart';
 import './ProductList.css';
 
 const ProductList = () => {
+  const { agregar } = useCart();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -56,6 +58,22 @@ const ProductList = () => {
     }
   };
 
+  const agregarProducto = (product) => {
+    const variante = product.variantes?.find((item) => Number(item.stock) > 0);
+    if (!variante) return;
+
+    agregar({
+      varianteProductoId: variante.id,
+      productoId: product.id,
+      nombreProducto: product.nombre,
+      talle: variante.talle,
+      color: variante.color,
+      precioUnitario: Number(product.precio),
+      imagen: product.imagen,
+      stock: Number(variante.stock),
+    });
+  };
+
   if (loading) {
     return (
       <p className="product-list-status">
@@ -74,9 +92,14 @@ const ProductList = () => {
 
   return (
     <div className="product-list-container">
-      <h2 className="product-list-title">
-        Nuestros productos
-      </h2>
+      <header className="product-list-header">
+        <h1 className="product-list-title">ViralOutfits</h1>
+        <Link className="product-list-cart" to="/carrito">
+          ♧ Carrito
+        </Link>
+      </header>
+
+      <h2 className="product-list-subtitle">Nuestros productos</h2>
 
       <p className="product-list-count">
         {products.length} productos encontrados
@@ -88,6 +111,7 @@ const ProductList = () => {
             key={product.id}
             product={product}
             onEliminar={eliminarProducto}
+            onAddToCart={agregarProducto}
           />
         ))}
       </div>
