@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { useCart } from '../../hooks/useCart';
+import { useSelector } from 'react-redux';
+import { selectCartQuantity } from '../../features/cart/cartSlice';
 import SearchBar from './SearchBar';
 import { IconBag, IconClose, IconMenu, IconUser } from '../ui/Icons';
 import './Navbar.css';
@@ -15,7 +16,7 @@ const LINKS = [
 ];
 
 const Navbar = () => {
-  const { cantidadTotal } = useCart();
+  const cantidadTotal = useSelector(selectCartQuantity);
   const [menuAbierto, setMenuAbierto] = useState(false);
   const cerrarMenu = () => setMenuAbierto(false);
 

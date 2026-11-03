@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
 import SectionHeader from '../components/ui/SectionHeader';
 import EmptyState from '../components/ui/EmptyState';
@@ -11,7 +12,7 @@ import StatCard from '../components/account/StatCard';
 import OrderCard from '../components/account/OrderCard';
 import ProfileForm from '../components/account/ProfileForm';
 import { useRequest } from '../hooks/useRequest';
-import { useCart } from '../hooks/useCart';
+import { agregarItem } from '../features/cart/cartSlice';
 import { getUsuarioActual } from '../services/usuarioService';
 import { getMisPedidos } from '../services/pedidoService';
 import { getProductos } from '../services/productService';
@@ -39,7 +40,7 @@ const TITULOS = { pedidos: 'Mis pedidos', datos: 'Mis datos', direcciones: 'Mis 
 const Account = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
-  const { agregar } = useCart();
+  const dispatch = useDispatch();
   const [seccion, setSeccion] = useState('pedidos');
   const [filtro, setFiltro] = useState('todos');
 
@@ -68,18 +69,20 @@ const Account = () => {
       const producto = findProductoPorVariante(productos ?? [], item.varianteProductoId);
       const variante = producto?.variantes.find((v) => v.id === item.varianteProductoId);
       if (!producto || !variante || variante.stock === 0) return;
-      agregar(
-        {
-          varianteProductoId: variante.id,
-          productoId: producto.id,
-          nombreProducto: producto.nombre,
-          talle: variante.talle,
-          color: variante.color,
-          precioUnitario: producto.precio,
-          imagen: getImagenPrincipal(producto),
-          stock: variante.stock,
-        },
-        Math.min(item.cantidad, variante.stock)
+      dispatch(
+        agregarItem({
+          item: {
+            varianteProductoId: variante.id,
+            productoId: producto.id,
+            nombreProducto: producto.nombre,
+            talle: variante.talle,
+            color: variante.color,
+            precioUnitario: producto.precio,
+            imagen: getImagenPrincipal(producto),
+            stock: variante.stock,
+          },
+          cantidad: Math.min(item.cantidad, variante.stock),
+        })
       );
     });
     navigate('/carrito');
