@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
 import Button from '../components/ui/Button';
 import EmptyState from '../components/ui/EmptyState';
@@ -16,7 +17,7 @@ import ShippingEstimator from '../components/product/ShippingEstimator';
 import ProductGrid from '../components/product/ProductGrid';
 import ServicesBar from '../components/home/ServicesBar';
 import { useRequest } from '../hooks/useRequest';
-import { useCart } from '../hooks/useCart';
+import { agregarItem } from '../features/cart/cartSlice';
 import { getProductoById, getProductos } from '../services/productService';
 import { formatPrice } from '../utils/format';
 import { ENVIO_GRATIS_DESDE } from '../utils/checkout';
@@ -38,7 +39,7 @@ const seleccionInicial = (producto) => {
 };
 
 const DetalleProducto = ({ producto, relacionados }) => {
-  const { agregar } = useCart();
+  const dispatch = useDispatch();
   const inicial = seleccionInicial(producto);
   const [color, setColor] = useState(inicial.color);
   const [talle, setTalle] = useState(inicial.talle);
@@ -69,18 +70,20 @@ const DetalleProducto = ({ producto, relacionados }) => {
   };
 
   const handleAgregar = () => {
-    agregar(
-      {
-        varianteProductoId: variante.id,
-        productoId: producto.id,
-        nombreProducto: producto.nombre,
-        talle,
-        color,
-        precioUnitario: producto.precio,
-        imagen: getImagenes(producto)[0],
-        stock,
-      },
-      cantidad
+    dispatch(
+      agregarItem({
+        item: {
+          varianteProductoId: variante.id,
+          productoId: producto.id,
+          nombreProducto: producto.nombre,
+          talle,
+          color,
+          precioUnitario: producto.precio,
+          imagen: getImagenes(producto)[0],
+          stock,
+        },
+        cantidad,
+      })
     );
     setAgregado(true);
   };

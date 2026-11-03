@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
 import SectionHeader from '../components/ui/SectionHeader';
 import EmptyState from '../components/ui/EmptyState';
@@ -11,7 +12,7 @@ import ContactForm from '../components/cart/ContactForm';
 import ShippingForm from '../components/cart/ShippingForm';
 import PaymentForm from '../components/cart/PaymentForm';
 import OrderSummary from '../components/cart/OrderSummary';
-import { useCart } from '../hooks/useCart';
+import {actualizarCantidad, quitarItem, selectCartItems, selectCartQuantity, selectCartSubtotal, vaciarCarrito,} from '../features/cart/cartSlice';
 import { crearPedido } from '../services/pedidoService';
 import { armarDireccionEnvio, calcularTotales, COSTO_ENVIO, METODOS_PAGO } from '../utils/checkout';
 import { limpiarErrores, requerido, validarEmail, validarTexto } from '../utils/validation';
@@ -62,7 +63,10 @@ const validarCheckout = (f) => {
 
 const Cart = () => {
   const navigate = useNavigate();
-  const { items, cantidadTotal, subtotal, actualizarCantidad, quitar, vaciar } = useCart();
+  const dispatch = useDispatch();
+  const items = useSelector(selectCartItems);
+  const cantidadTotal = useSelector(selectCartQuantity);
+  const subtotal = useSelector(selectCartSubtotal);
   const [form, setForm] = useState(FORM_INICIAL);
   const [errores, setErrores] = useState({});
   const [cupon, setCupon] = useState(null);
@@ -95,7 +99,7 @@ const Cart = () => {
         metodoPago: METODOS_PAGO[form.metodoPago],
         direccionEnvio: armarDireccionEnvio(form),
       });
-      vaciar();
+      dispatch(vaciarCarrito());
       navigate('/mi-cuenta', { state: { pedidoCreado: pedido.id } });
     } catch (err) {
       setErrorEnvio(err.message);
@@ -141,14 +145,21 @@ const Cart = () => {
             numero={1}
             titulo={`Tu bolsa (${cantidadTotal} ${cantidadTotal === 1 ? 'producto' : 'productos'})`}
             accion={
-              <button type="button" className="link" onClick={vaciar}>
+              <button type="button" className="link" onClick={() => dispatch(vaciarCarrito())}>
                 Vaciar bolsa
               </button>
             }
           >
             <ul className="cart-list">
               {items.map((item) => (
-                <CartItem key={item.varianteProductoId} item={item} onCantidad={actualizarCantidad} onQuitar={quitar} />
+                <CartItem
+                  key={item.varianteProductoId}
+                  item={item}
+                  onCantidad={(varianteProductoId, cantidad) =>
+                    dispatch(actualizarCantidad({ varianteProductoId, cantidad }))
+                  }
+                  onQuitar={(varianteProductoId) => dispatch(quitarItem(varianteProductoId))}
+                />
               ))}
             </ul>
           </CheckoutSection>
